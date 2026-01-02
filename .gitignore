@@ -12,3 +12,17 @@ env.bak/
 venv.bak/
 
 .DS_Store
+
+
+# Models and Scalers from Outputs
+outputs/lstm_base_model.h5
+outputs/lstm_class_weight_models.h5
+outputs/lstm_cost_sensitive_model.h5
+outputs/lstm_focal_loss_model.h5
+outputs/lstm_oversampling_model.h5
+
+outputs/scaler_base.save
+outputs/scaler_class_weights.save
+outputs/scaler_cost_sensitive.save
+outputs/scaler_focal_loss.save
+outputs/scaler_oversampling.save
