@@ -43,8 +43,10 @@ def convert_date_to_datetime(df, date_column_name):
     Converts the date column to *datetime* type and replaces 'date_column_name' by 'date', removing the original column. 
     Sets the df_index as date!
     '''
+    df = df.copy()
     df['date'] = pd.to_datetime(df[date_column_name], errors='coerce')
-    df = df.drop(columns=[date_column_name])
+    if date_column_name != 'date':
+        df = df.drop(columns=[date_column_name])
     df = df.set_index('date')
     return df
 
