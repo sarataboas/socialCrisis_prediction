@@ -1,0 +1,11 @@
+{
+    "method": "window_oversampling",
+    "train_data_path": "datasets/oversampling/oversampled_imputed_train_df.csv",
+    "test_data_path": "datasets/oversampling/test_imputed_df.csv",
+    "target_col": "label",
+    "n_steps": 4,
+    "epochs": 50,
+    "batch_size": 16,
+    "model_path": "outputs/lstm_oversampling_imputed_model.h5",
+    "results_path": "outputs/results_oversampling_imputed.json"
+}

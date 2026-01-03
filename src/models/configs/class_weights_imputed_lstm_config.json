@@ -1,0 +1,12 @@
+{
+  "method": "class_weights",
+  "data_path": "datasets/data_imputed.csv",
+  "target_col": "label",
+  "train_size": 0.8,
+  "n_steps": 8,
+  "epochs": 50,
+  "batch_size": 32,
+  "scaler_path": "outputs/scaler_class_weights_imputed.save",
+  "model_path": "outputs/lstm_class_weights_imputed_model.h5",
+  "results_path": "outputs/results_class_weights_imputed.json"
+}
