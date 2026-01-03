@@ -4,7 +4,15 @@ from tensorflow.keras.layers import LSTM, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from tqdm.keras import TqdmCallback
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, balanced_accuracy_score
+from sklearn.metrics import (
+    confusion_matrix,
+    classification_report,
+    accuracy_score,
+    balanced_accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score
+)
 from sklearn.utils.class_weight import compute_class_weight
 
 import numpy as np
@@ -155,22 +163,39 @@ def train(model, X_train, y_train, X_val, y_val, model_path, class_weights=None,
 
 # ---------------- Evaluation ----------------
 def save_classification_results_json(y_test, y_pred, filepath="results.json"):
-    cm = confusion_matrix(y_test, y_pred).tolist()
+    cm = confusion_matrix(y_test, y_pred)
     cr = classification_report(y_test, y_pred, output_dict=True)
+
     acc = accuracy_score(y_test, y_pred)
     bal_acc = balanced_accuracy_score(y_test, y_pred)
 
+    precision_crisis = precision_score(y_test, y_pred, pos_label=1, zero_division=0)
+    recall_crisis = recall_score(y_test, y_pred, pos_label=1, zero_division=0)
+    f1_crisis = f1_score(y_test, y_pred, pos_label=1, zero_division=0)
+
+    tn, fp, fn, tp = cm.ravel()
+    tpr = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+    tnr = tn / (tn + fp) if (tn + fp) > 0 else 0.0
+    g_mean = float(np.sqrt(tpr * tnr))
+
     results = {
-        "accuracy": acc,
-        "balanced_accuracy": bal_acc,
-        "confusion_matrix": cm,
+        # métricas escalares (AGREGÁVEIS)
+        "accuracy": float(acc),
+        "balanced_accuracy": float(bal_acc),
+        "precision_crisis": float(precision_crisis),
+        "recall_crisis": float(recall_crisis),
+        "f1_crisis": float(f1_crisis),
+        "g_mean": g_mean,
+
+        # informação complementar (não agregável)
+        "confusion_matrix": cm.tolist(),
         "classification_report": cr
     }
 
     with open(filepath, "w") as f:
         json.dump(results, f, indent=4)
 
-    print(f"Results in {filepath}")
+    print(f"Results saved to {filepath}")
 
 
 
