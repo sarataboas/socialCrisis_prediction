@@ -17,13 +17,26 @@ venv.bak/
 
 # Models and Scalers from Outputs
 outputs/lstm_base_model.h5
-outputs/lstm_class_weights_models.h5
+outputs/lstm_class_weights_model.h5
 outputs/lstm_cost_sensitive_model.h5
 outputs/lstm_focal_loss_model.h5
 outputs/lstm_oversampling_model.h5
+
+outputs/lstm_base_model_imputed.h5
+outputs/lstm_class_weights_imputed_model.h5
+outputs/lstm_cost_sensitive_imputed_model.h5
+outputs/lstm_focal_loss_imputed_model.h5
+outputs/lstm_oversampling_imputed_model.h5
 
 outputs/scaler_base.save
 outputs/scaler_class_weights.save
 outputs/scaler_cost_sensitive.save
 outputs/scaler_focal_loss.save
 outputs/scaler_oversampling.save
+
+
+outputs/scaler_base_imputed.save
+outputs/scaler_class_weights_imputed.save
+outputs/scaler_cost_sensitive_imputed.save
+outputs/scaler_focal_loss_imputed.save
+outputs/scaler_oversampling_imputed.save
