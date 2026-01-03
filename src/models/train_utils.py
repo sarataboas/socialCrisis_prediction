@@ -38,7 +38,7 @@ def load_config(config_path):
     return config
 
 # ---------------- Data ---------------
-def load_data(path, date_column='date'):
+def load_data(path):
     path = PROJECT_ROOT / path
     if not Path(path).exists():
         raise FileNotFoundError(f"File {path} not found")
