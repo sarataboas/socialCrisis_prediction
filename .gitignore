@@ -5,6 +5,7 @@ __pycache__/
 .env
 .envrc
 .venv
+.venv_timeshap
 env/
 venv/
 ENV/
@@ -16,7 +17,7 @@ venv.bak/
 
 # Models and Scalers from Outputs
 outputs/lstm_base_model.h5
-outputs/lstm_class_weight_models.h5
+outputs/lstm_class_weights_models.h5
 outputs/lstm_cost_sensitive_model.h5
 outputs/lstm_focal_loss_model.h5
 outputs/lstm_oversampling_model.h5
