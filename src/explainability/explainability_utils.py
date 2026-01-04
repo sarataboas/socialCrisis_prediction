@@ -226,7 +226,7 @@ def plot_lime_by_feature(df_lime, figsize=(8, 4)):
         data=agg,
         x="weight",
         y="base_feature",
-        color="#A2CDE6"
+        color="#73A56C"
     )
 
     plt.xlabel("Σ |Surrogate weight| over time")
