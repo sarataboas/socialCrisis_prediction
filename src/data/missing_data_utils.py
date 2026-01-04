@@ -1,5 +1,18 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import missingno as msno
+import matplotlib.pyplot as plt
+import pandas as pd
+import sys
+import os
+
+plt.style.use("default")  
+plt.rcParams.update({
+    "figure.facecolor": "white",
+    "axes.facecolor": "white",
+    "savefig.facecolor": "white"
+})
+
 
 
 # ------------------------ Missing Data Analysis ------------------------

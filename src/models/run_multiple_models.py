@@ -11,18 +11,12 @@ from src.models.train_utils import load_config, PROJECT_ROOT
 from src.models.run_lstm_experiments import main
 
 
-# -------------------------
-# Reproducibility
-# -------------------------
 def set_seed(seed: int):
     random.seed(seed)
     np.random.seed(seed)
     tf.random.set_seed(seed)
 
 
-# -------------------------
-# Main experiment runner
-# -------------------------
 def run_multiple(config_path: str, n_runs: int, prefix: str = "results"):
     
     base_config = load_config(config_path)
@@ -65,9 +59,7 @@ def run_multiple(config_path: str, n_runs: int, prefix: str = "results"):
         # Remove per-run results file
         os.remove(results_path)
 
-    # -------------------------
-    # Aggregate metrics
-    # -------------------------
+
     aggregated = {}
 
     for key, value in all_metrics[0].items():

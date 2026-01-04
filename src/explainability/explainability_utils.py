@@ -7,6 +7,8 @@ from tensorflow import keras
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+from lime.lime_tabular import LimeTabularExplainer
+
 
 # --------------------- Integrated Gradients ---------------------
 
@@ -152,9 +154,6 @@ def plot_occlusion_feature_importance(occlusion_map, feature_names, title="Featu
 
     # ---------------------------- LIME ---------------------------
 
-from lime.lime_tabular import LimeTabularExplainer
-import numpy as np
-
 def lime_predict_fn(X_flat, X_test, model):
     """
     X_flat: (N, T*F)
@@ -194,8 +193,8 @@ def plot_lime_surrogate(
         y="feature",
         hue="effect",
         palette={
-            "Increases crisis risk": "#EF575E",   # laranja
-            "Mitigates crisis risk": "#BACC62"    # azul
+            "Increases crisis risk": "#EF575E",  
+            "Mitigates crisis risk": "#BACC62"    
         },
         dodge=False
     )
