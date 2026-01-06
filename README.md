@@ -89,12 +89,12 @@ These notebooks can be run sequentially to reproduce the full analytical pipelin
 Model training and evaluation are executed via Python scripts in the src/models/ directory.
 Experiments are fully configurable through JSON files in src/models/configs/.
 
-Single LSTM sinexperiments can be runned in the Class Imabalance Notebook or with:
+Single LSTM experiments can be runned in the Class Imabalance Notebook or with:
 ```bash
 cd socialCrisis_prediction
 python -m src/models/run_lstm_experiments.py --config src/models/configs/lstm_config.json
 ```
-Change <src/models/configs/lstm_config.json> to the name of the file correspondant to the desired experiment.
+Change <src/models/configs/lstm_config.json> to the name of the file correspondent to the desired experiment.
 
 To run multiple imbalance-handling strategies sequentially:
 ```bash
@@ -104,4 +104,9 @@ src/models/configs/lstm_config.json \
 20 \
 lstm_base
 ```
-Change <src/models/configs/lstm_config.json> and <lstm_base> to the name of the file correspondant to the desired experiment.
+Change <src/models/configs/lstm_config.json> and <lstm_base> to the name of the file correspondent to the desired experiment.
+
+
+### 3. Model Performance Results
+Model Evaluation results are presented in `notebooks/performance_results.py`
+
